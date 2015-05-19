@@ -28,8 +28,14 @@ namespace MyHybridSite.Controllers
             log.TimeStamp = DateTime.Now;
             log.Message = "Message 2";
             Log.LogList.Add(logId, log);
+            logId = Guid.NewGuid();
+            log = new Log();
+            log.Id = logId;
+            log.TimeStamp = DateTime.Now;
+            log.Message = "Message 3";
+            Log.LogList.Add(logId, log);
 
-            return View("Index", Log.LogList.Values);
+            return View(Log.LogList.Values);
         }
 
         // GET: MvcPerson/Edit/5
